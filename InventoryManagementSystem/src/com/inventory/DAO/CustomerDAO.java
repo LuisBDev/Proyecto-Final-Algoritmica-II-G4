@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.inventory.DAO;
 
 import com.inventory.DTO.CustomerDTO;
@@ -14,12 +9,8 @@ import java.sql.*;
 import java.util.Locale;
 import java.util.Vector;
 
-/**
- *
- * @author asjad
- */
 
-// Data Access Object for Customers
+// Data Access Object para los Clientes (Customers)
 public class CustomerDAO {
     Connection conn = null;
     PreparedStatement prepStatement= null;
@@ -35,19 +26,20 @@ public class CustomerDAO {
         }
     }
 
-    // Methods to add new custoemr
+    // Métodos para añadir nuevos clientes
+    
     public void addCustomerDAO(CustomerDTO customerDTO) {
         try {
-            String query = "SELECT * FROM customers WHERE nombres='"
+            String query = "SELECT * FROM customers WHERE fullname='"
                     +customerDTO.getFullName()
-                    + "' AND ubicacion='"
+                    + "' AND location='"
                     +customerDTO.getLocation()
-                    + "' AND celular='"
+                    + "' AND phone='"
                     +customerDTO.getPhone()
                     + "'";
             resultSet = statement.executeQuery(query);
             if (resultSet.next())
-                JOptionPane.showMessageDialog(null, "Customer already exists.");
+                JOptionPane.showMessageDialog(null, "Este cliente ya existe en la BD.");
             else
                 addFunction(customerDTO);
         } catch (SQLException e) {
@@ -63,87 +55,111 @@ public class CustomerDAO {
             prepStatement.setString(3, customerDTO.getLocation());
             prepStatement.setString(4, customerDTO.getPhone());
             prepStatement.executeUpdate();
-            JOptionPane.showMessageDialog(null, "New customer has been added.");
+            JOptionPane.showMessageDialog(null, "Nuevo cliente añadido!");
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
     }
 
-    // Method to edit existing customer details
+    // Método para editar detalles existentes de los Clientes
     public  void editCustomerDAO(CustomerDTO customerDTO) {
-        try {
-            String query = "UPDATE customers SET nombres=?,ubicacion=?,celular=? WHERE codigocliente=?";
+        try 
+        {
+            String query = "UPDATE customers SET fullname=?,location=?,phone=? WHERE customercode=?";
             prepStatement = conn.prepareStatement(query);
             prepStatement.setString(1, customerDTO.getFullName());
             prepStatement.setString(2, customerDTO.getLocation());
             prepStatement.setString(3, customerDTO.getPhone());
             prepStatement.setString(4, customerDTO.getCustCode());
             prepStatement.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Customer details have been updated.");
-        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Se actualizaron detalles del cliente");
+        } 
+        catch (SQLException e) 
+        {
             e.printStackTrace();
         }
     }
 
-    // Method to delete existing customer
+    // Metodo para eliminar un cliente existente
     public void deleteCustomerDAO(String custCode) {
         try {
-            String query = "DELETE FROM customers WHERE codigocliente='" +custCode+ "'";
+            String query = "DELETE FROM customers WHERE customercode='" +custCode+ "'";
             statement.executeUpdate(query);
-            JOptionPane.showMessageDialog(null, "Customer removed.");
+            JOptionPane.showMessageDialog(null, "Cliente eliminado.");
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    // Method to retrieve data set to be displayed
-    public ResultSet getQueryResult() {
-        try {
-            String query = "SELECT codigocliente,nombres,ubicacion,celular FROM customers";
+   
+    // Método para recuperar data que se mostrará
+    public ResultSet getQueryResult() 
+    
+    {
+        try 
+        {
+            String query = "SELECT customercode,fullname,location,phone FROM customers";
             resultSet = statement.executeQuery(query);
-        } catch (SQLException e) {
+        } 
+        catch (SQLException e) 
+        {
             e.printStackTrace();
         }
         return resultSet;
     }
 
-    // Method to retrieve search data
-    public ResultSet getCustomerSearch(String text) {
-        try {
-            String query = "SELECT codigocliente,nombres,ubicacion,celular FROM customers " +
-                    "WHERE codigocliente LIKE '%"+text+"%' OR nombres LIKE '%"+text+"%' OR " +
-                    "ubicacion LIKE '%"+text+"%' OR celular LIKE '%"+text+"%'";
+    // Método para recuperar datos de búsqueda
+    
+    public ResultSet getCustomerSearch(String text) 
+    {
+        try 
+        {
+            String query = "SELECT customercode,fullname,location,phone FROM customers " +
+                    "WHERE customercode LIKE '%"+text+"%' OR fullname LIKE '%"+text+"%' OR " +
+                    "location LIKE '%"+text+"%' OR phone LIKE '%"+text+"%'";
             resultSet = statement.executeQuery(query);
-        } catch (SQLException e) {
+        } 
+        catch (SQLException e) 
+        {
             e.printStackTrace();
         }
         return resultSet;
     }
 
-    public ResultSet getCustName(String custCode) {
-        try {
-            String query = "SELECT * FROM customers WHERE codigocliente='" +custCode+ "'";
+    public ResultSet getCustName(String custCode) 
+    {
+        try 
+        {
+            String query = "SELECT * FROM customers WHERE customercode='" +custCode+ "'";
             resultSet = statement.executeQuery(query);
-        } catch (SQLException e) {
+        } 
+        
+        catch (SQLException e) 
+        {
             e.printStackTrace();
         }
         return resultSet;
     }
 
-    public ResultSet getProdName(String prodCode) {
-        try {
+    public ResultSet getProdName(String prodCode) 
+    {
+        try 
+        {
             String query = "SELECT productname,currentstock.quantity FROM products " +
                     "INNER JOIN currentstock ON products.productcode=currentstock.productcode " +
                     "WHERE currentstock.productcode='" +prodCode+ "'";
             resultSet = statement.executeQuery(query);
-        } catch (SQLException e) {
+        } 
+        catch (SQLException e) 
+        {
             e.printStackTrace();
         }
         return resultSet;
     }
 
-    // Method to display data set in tabular form
+    // Método para mostrar data en forma tabular
+    
     public DefaultTableModel buildTableModel(ResultSet resultSet) throws SQLException {
         ResultSetMetaData metaData = resultSet.getMetaData();
         Vector<String> columnNames = new Vector<String>();

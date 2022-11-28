@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.inventory.UI;
 
 import com.inventory.DAO.UserDAO;
@@ -15,10 +11,6 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.time.LocalDateTime;
 
-/**
- *
- * @author asjad
- */
 
 // Main frame for the application after successful login
 public class Dashboard extends javax.swing.JFrame {
@@ -364,7 +356,7 @@ public class Dashboard extends javax.swing.JFrame {
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         int opt = JOptionPane.showConfirmDialog(
                 null,
-                "<html>Are you sure you want to logout?<br>You will have to login again.<html>",
+                "<html>¿Seguro que quiere salir?<br>Deberá iniciar sesion de nuevo.<html>",
                 "Confirmation",
                 JOptionPane.YES_NO_OPTION);
         if (opt==JOptionPane.YES_OPTION){

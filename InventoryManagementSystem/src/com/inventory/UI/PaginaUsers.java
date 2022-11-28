@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.inventory.UI;
 
 import com.inventory.DAO.UserDAO;
@@ -14,9 +9,7 @@ import java.sql.*;
 
 public class PaginaUsers extends javax.swing.JPanel {
 
-    /**
-     * Creates new form UsersPage
-     */
+
     public PaginaUsers() {
         initComponents();
         loadDataSet();

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.inventory.UI;
 
 import com.inventory.DAO.SupplierDAO;
@@ -11,15 +6,10 @@ import com.inventory.DTO.SupplierDTO;
 import javax.swing.*;
 import java.sql.SQLException;
 
-/**
- *
- * @author asjad
- */
+
 public class PaginaProveedores extends javax.swing.JPanel {
 
-    /**
-     * Creates new form SupplierPage
-     */
+
     public PaginaProveedores() {
         initComponents();
         loadDataSet();
@@ -266,8 +256,11 @@ public class PaginaProveedores extends javax.swing.JPanel {
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         if (codeText.getText().equals("") || nameText.getText().equals("")
                 || locationText.getText().equals("") || phoneText.getText().equals(""))
+        {
             JOptionPane.showMessageDialog(this, "Please enter all the required details.");
-        else {
+        }
+        else 
+        {
             SupplierDTO supplierDTO = new SupplierDTO();
             supplierDTO.setSuppCode(codeText.getText());
             supplierDTO.setFullName(nameText.getText());
@@ -299,14 +292,18 @@ public class PaginaProveedores extends javax.swing.JPanel {
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         if (suppTable.getSelectedRow()<0)
+        {
             JOptionPane.showMessageDialog(this, "Please select an entry from the table to be deleted.");
-        else {
+        }
+        else 
+        {
             int opt = JOptionPane.showConfirmDialog(
                     this,
                     "Are you sure you want to delete this supplier?",
                     "Confirmation",
                     JOptionPane.YES_NO_OPTION);
-            if (opt==JOptionPane.YES_OPTION) {
+            if (opt==JOptionPane.YES_OPTION) 
+            {
                 new SupplierDAO().deleteSupplierDAO(suppTable.getValueAt(suppTable.getSelectedRow(),0).toString());
                 loadDataSet();
             }

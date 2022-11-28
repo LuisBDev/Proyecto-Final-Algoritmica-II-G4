@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.inventory.UI;
 
 import com.inventory.DAO.CustomerDAO;
@@ -11,15 +7,10 @@ import com.inventory.DTO.CustomerDTO;
 import javax.swing.*;
 import java.sql.SQLException;
 
-/**
- *
- * @author asjad
- */
+
 public class PaginaClientes extends javax.swing.JPanel {
 
-    /**
-     * Creates new form CustomerPage
-     */
+    
     public PaginaClientes() {
         initComponents();
         loadDataSet();
@@ -245,7 +236,7 @@ public class PaginaClientes extends javax.swing.JPanel {
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         if (codeText.getText().equals("") || nameText.getText().equals("")
                 || locationText.getText().equals("") || phoneText.getText().equals(""))
-            JOptionPane.showMessageDialog(this, "Please enter all the required details.");
+            JOptionPane.showMessageDialog(this, "Por favor llene todos los campos requeridos.");
         else {
             CustomerDTO customerDTO = new CustomerDTO();
             customerDTO.setCustCode(codeText.getText());
@@ -259,11 +250,11 @@ public class PaginaClientes extends javax.swing.JPanel {
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
         if (custTable.getSelectedRow()<0)
-            JOptionPane.showMessageDialog(this, "Select a customer from the table.");
+            JOptionPane.showMessageDialog(this, "Seleccione un cliente de la tabla.");
         else {
             if (codeText.getText().equals("") || nameText.getText().equals("")
                     || locationText.getText().equals("") || phoneText.getText().equals(""))
-                JOptionPane.showMessageDialog(this, "Please enter all the required details.");
+                JOptionPane.showMessageDialog(this, "Por favor llene todos los campos requeridos.");
             else {
                 CustomerDTO customerDTO = new CustomerDTO();
                 customerDTO.setCustCode(codeText.getText());
@@ -278,12 +269,12 @@ public class PaginaClientes extends javax.swing.JPanel {
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         if (custTable.getSelectedRow()<0)
-            JOptionPane.showMessageDialog(this, "Select a customer from the table.");
+            JOptionPane.showMessageDialog(this, "Seleccione un cliente de la tabla.");
         else {
             int opt = JOptionPane.showConfirmDialog(
                     this,
-                    "Are you sure you want to delete this customer?",
-                    "Confirmation",
+                    "Está seguro de eliminar este cliente?",
+                    "Confirmación",
                     JOptionPane.YES_NO_OPTION);
             if (opt==JOptionPane.YES_OPTION) {
                 new CustomerDAO().deleteCustomerDAO(custTable.getValueAt(custTable.getSelectedRow(),0).toString());

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.inventory.UI;
 
 import com.inventory.DAO.CustomerDAO;
@@ -13,10 +8,7 @@ import javax.swing.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- *
- * @author asjad
- */
+
 public class PaginaVentas extends javax.swing.JPanel {
 
     String username;
@@ -24,9 +16,7 @@ public class PaginaVentas extends javax.swing.JPanel {
     int quantity;
     String prodCode;
 
-    /**
-     * Creates new form SalesPage
-     */
+   
     
     public PaginaVentas(String username, Dashboard dashboard) {
         initComponents();
@@ -85,6 +75,11 @@ public class PaginaVentas extends javax.swing.JPanel {
 
         jLabel6.setText("Cantidad:");
 
+        custCodeText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                custCodeTextActionPerformed(evt);
+            }
+        });
         custCodeText.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 custCodeTextKeyReleased(evt);
@@ -283,8 +278,8 @@ public class PaginaVentas extends javax.swing.JPanel {
         else {
             int opt = JOptionPane.showConfirmDialog(
                     this,
-                    "Are you sure you want to delete this sale from the database?",
-                    "Confirmation",
+                    "Seguro de eliminar esta venta de la base de datos?",
+                    "Confirmación",
                     JOptionPane.YES_NO_OPTION);
             if (opt == JOptionPane.YES_OPTION) {
                 new ProductDAO().deleteSaleDAO(Integer.parseInt(
@@ -359,7 +354,7 @@ public class PaginaVentas extends javax.swing.JPanel {
                         + " | Location: "
                         +resultSet.getString("location"));
             else
-                custNameLabel.setText("||   Customer doesn't exist in database.   ||");
+                custNameLabel.setText("||   Cliente no existe en la BD.   ||");
             custNameLabel.setVisible(true);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -377,7 +372,7 @@ public class PaginaVentas extends javax.swing.JPanel {
                 Double sellPrice = new ProductDAO().getProdSell(prodCodeText.getText());
                 priceText.setText(sellPrice.toString());
             } else
-                prodNameLabel.setText("||   Product doesn't exist in Inventory.  ||");
+                prodNameLabel.setText("||   Producto no existe en el Inventario.  ||");
             prodNameLabel.setVisible(true);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -387,6 +382,10 @@ public class PaginaVentas extends javax.swing.JPanel {
     private void searchTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchTextKeyReleased
         loadSearchData(searchText.getText());
     }//GEN-LAST:event_searchTextKeyReleased
+
+    private void custCodeTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custCodeTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_custCodeTextActionPerformed
 
     // Method to load data into table
     public void loadDataSet() {

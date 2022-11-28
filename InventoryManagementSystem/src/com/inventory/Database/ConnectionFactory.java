@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.inventory.Database;
 
 import java.io.FileInputStream;
@@ -15,7 +10,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Properties;
 
-//Class to retrieve connection for database and login verfication.
+//Clase para verificar y conectar a la base de datos
+
 public class ConnectionFactory {
 
     static final String driver = "com.mysql.cj.jdbc.Driver";
@@ -30,31 +26,41 @@ public class ConnectionFactory {
     ResultSet resultSet = null;
 
     public ConnectionFactory(){
-        try {
-            //Username and Password saved as configurable properties to allow changes without recompilation.
+        try 
+        {
+            //Username y  Password guardados en un xml para no recompilar.
             prop = new Properties();
             prop.loadFromXML(new FileInputStream("lib/DBCredentials.xml"));
-        } catch (IOException e) {
+        } 
+        catch (IOException e) 
+        {
             e.printStackTrace();
         }
         username = prop.getProperty("username");
         password = prop.getProperty("password");
 
-        try {
+        try 
+        {
             Class.forName(driver);
             conn = DriverManager.getConnection(url, username, password);
             statement = conn.createStatement();
-        } catch (Exception e) {
+        } 
+        catch (Exception e) 
+        {
             e.printStackTrace();
         }
     }
 
-    public Connection getConn() {
-        try {
+    public Connection getConn() 
+    {
+        try 
+        {
             Class.forName(driver);
             conn = DriverManager.getConnection(url, username, password);
             System.out.println("Conectado exitosamente!");
-        } catch (Exception e) {
+        } 
+        catch (Exception e) 
+        {
             e.printStackTrace();
         }
         return conn;
@@ -70,18 +76,18 @@ public class ConnectionFactory {
                 + "' AND usertype='"
                 + userType
                 + "' LIMIT 1";
-
-        try 
+        
+        //Manejo de excepciones
+        try
         {
             resultSet = statement.executeQuery(query);
             if(resultSet.next())
             {
                 return true;
             }
-        } 
-        
-        //Manejo de excepciones
-        catch (Exception ex) {
+        }     
+        catch (Exception ex) 
+        {
             ex.printStackTrace();
         }
         return false;

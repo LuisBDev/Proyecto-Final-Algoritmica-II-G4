@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.inventory.UI;
 
 import com.inventory.DAO.UserDAO;
@@ -10,15 +5,10 @@ import com.inventory.DAO.UserDAO;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author asjad
- */
+
 public class PaginaUserLogs extends javax.swing.JPanel {
 
-    /**
-     * Creates new form UserLogsPage
-     */
+    
     public PaginaUserLogs() {
         initComponents();
         loadDataSet();
@@ -134,14 +124,18 @@ public class PaginaUserLogs extends javax.swing.JPanel {
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         // TODO add your handling code here:
          if (logTable.getSelectedRow()<0)
-            JOptionPane.showMessageDialog(this, "Select a userlog from the table.");
-        else {
-            int opt = JOptionPane.showConfirmDialog(
+         {
+            JOptionPane.showMessageDialog(this, "Selecciona un userlog de la tabla.");
+         }
+        else 
+        {
+        int opt = JOptionPane.showConfirmDialog(
                     this,
-                    "Are you sure you want to delete this log table?",
-                    "Confirmation",
+                    "Está seguro de eliminar este registro?",
+                    "Confirmación",
                     JOptionPane.YES_NO_OPTION);
-            if (opt==JOptionPane.YES_OPTION) {
+            if (opt==JOptionPane.YES_OPTION)
+            {
                 new UserDAO().deleteUserLogDAO(logTable.getValueAt(logTable.getSelectedRow(),2).toString());
                 loadDataSet();
             }

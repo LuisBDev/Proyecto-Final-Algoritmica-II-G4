@@ -246,7 +246,7 @@ public class UserDAO {
             try {
             String query = "DELETE FROM userlogs WHERE in_time='" +in_time+ "'";
             statement.executeUpdate(query);
-            JOptionPane.showMessageDialog(null, "UserLog removed.");
+            JOptionPane.showMessageDialog(null, "UserLog Eliminado!");
         } catch (SQLException e) {
             e.printStackTrace();
         }

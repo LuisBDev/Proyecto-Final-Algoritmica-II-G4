@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.inventory.DAO;
 
 import com.inventory.DTO.ProductDTO;
@@ -14,12 +9,10 @@ import java.sql.*;
 import java.util.Locale;
 import java.util.Vector;
 
-/**
- *
- * @author asjad
- */
 
-// Data Access Object for Products, Purchase, Stock and Sales
+
+// Data Access Object para Productos(Products), Registro de Compras (Purchase), Stock y Ventas (Sales)
+
 public class ProductDAO {
 
     Connection conn = null;
@@ -29,140 +22,199 @@ public class ProductDAO {
     Statement statement2 = null;
     ResultSet resultSet = null;
 
-    public ProductDAO() {
-        try {
+    public ProductDAO() 
+    {
+        try 
+        {
             conn = new ConnectionFactory().getConn();
             statement = conn.createStatement();
             statement2 = conn.createStatement();
-        } catch (Exception ex) {
+        } 
+        catch (Exception ex) 
+        {
             ex.printStackTrace();
         }
+        
     }
 
-    public ResultSet getSuppInfo() {
-        try {
+    public ResultSet getSuppInfo() 
+    {
+        try 
+        {
             String query = "SELECT * FROM suppliers";
             resultSet = statement.executeQuery(query);
-        } catch (Exception e) {
+        } 
+        catch (Exception e) 
+        {
             e.printStackTrace();
         }
         return resultSet;
     }
 
-    public ResultSet getCustInfo() {
-        try {
+    public ResultSet getCustInfo() 
+    {
+        try 
+        {
             String query = "SELECT * FROM customers";
             resultSet = statement.executeQuery(query);
-        } catch (Exception e) {
+        } 
+        catch (Exception e) 
+        {
             e.printStackTrace();
         }
         return resultSet;
     }
 
-    public ResultSet getProdStock() {
-        try {
+    public ResultSet getProdStock() 
+    {
+        try 
+        {
             String query = "SELECT * FROM currentstock";
             resultSet = statement.executeQuery(query);
-        } catch (Exception e) {
+        } 
+        catch (Exception e) 
+        {
             e.printStackTrace();
         }
         return resultSet;
     }
 
-    public ResultSet getProdInfo() {
-        try {
+    public ResultSet getProdInfo() 
+    {
+        try 
+        {
             String query = "SELECT * FROM products";
             resultSet = statement.executeQuery(query);
-        } catch (Exception e) {
+        } 
+        catch (Exception e) 
+        {
             e.printStackTrace();
         }
         return resultSet;
     }
 
-    public Double getProdCost(String prodCode) {
+    public Double getProdCost(String prodCode) 
+    {
         Double costPrice = null;
-        try {
+        try 
+        {
             String query = "SELECT costprice FROM products WHERE productcode='" +prodCode+ "'";
             resultSet = statement.executeQuery(query);
             if (resultSet.next())
                 costPrice = resultSet.getDouble("costprice");
-        } catch (Exception e) {
+        } 
+        catch (Exception e) 
+        {
             e.printStackTrace();
         }
         return costPrice;
     }
 
-    public Double getProdSell(String prodCode) {
+    public Double getProdSell(String prodCode) 
+    {
         Double sellPrice = null;
-        try {
+        try 
+        {
             String query = "SELECT sellprice FROM products WHERE productcode='" +prodCode+ "'";
             resultSet = statement.executeQuery(query);
             if (resultSet.next())
                 sellPrice = resultSet.getDouble("sellprice");
-        } catch (Exception e) {
+        } 
+        catch (Exception e) 
+        {
             e.printStackTrace();
         }
         return sellPrice;
     }
 
     String suppCode;
-    public String getSuppCode(String suppName) {
-        try {
+    public String getSuppCode(String suppName) 
+    {
+        try 
+        {
             String query = "SELECT suppliercode FROM suppliers WHERE fullname='" +suppName+ "'";
             resultSet = statement.executeQuery(query);
-            while (resultSet.next()) {
+            while (resultSet.next()) 
+            {
                 suppCode = resultSet.getString("suppliercode");
             }
-        } catch (SQLException e) {
+        } 
+        
+        catch (SQLException e) 
+        {
             e.printStackTrace();
         }
         return suppCode;
     }
 
     String prodCode;
-    public String getProdCode(String prodName) {
-        try {
+    public String getProdCode(String prodName) 
+    {
+        try 
+        {
             String query = "SELECT productcode FROM products WHERE productname='" +prodName+ "'";
             resultSet = statement.executeQuery(query);
-            while (resultSet.next()) {
+            
+            while (resultSet.next()) 
+            {
                 suppCode = resultSet.getString("productcode");
             }
-        } catch (SQLException e) {
+            
+        } 
+        
+        catch (SQLException e) 
+        
+        {
             e.printStackTrace();
         }
         return prodCode;
     }
 
     String custCode;
-    public String getCustCode(String custName) {
-        try {
+    public String getCustCode(String custName) 
+    {
+        try 
+        {
             String query = "SELECT customercode FROM suppliers WHERE fullname='" +custName+ "'";
             resultSet = statement.executeQuery(query);
-            while (resultSet.next()) {
+            
+            while (resultSet.next()) 
+            {
                 suppCode = resultSet.getString("customercode");
             }
-        } catch (SQLException e) {
+            
+        } 
+        catch (SQLException e) 
+        {
             e.printStackTrace();
         }
         return custCode;
     }
 
-    // Method to check for availability of stock in Inventory
+ 
+    //Método para verificar disponibilidad de stock en el inventario
     boolean flag = false;
-    public boolean checkStock(String prodCode) {
-        try {
+    public boolean checkStock(String prodCode) 
+    {
+        try 
+        {
             String query = "SELECT * FROM currentstock WHERE productcode='" +prodCode+ "'";
             resultSet = statement.executeQuery(query);
-            while (resultSet.next()) {
+            
+            while (resultSet.next()) 
+            {
                 flag = true;
             }
-        } catch (SQLException e) {
+        } 
+        catch (SQLException e) 
+        {
             e.printStackTrace();
         }
         return flag;
     }
 
-    // Methods to add a new product
+   
+    //Método para añadir nuevo producto
     public void addProductDAO(ProductDTO productDTO) {
         try {
             String query = "SELECT * FROM products WHERE productname='"
@@ -183,6 +235,7 @@ public class ProductDAO {
             e.printStackTrace();
         }
     }
+    
     public void addFunction(ProductDTO productDTO) {
         try {
             String query = "INSERT INTO products VALUES(null,?,?,?,?,?)";
@@ -200,13 +253,14 @@ public class ProductDAO {
 
             prepStatement.executeUpdate();
             prepStatement2.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Product added and ready for sale.");
+            JOptionPane.showMessageDialog(null, "Producto añadido y listo para la venta.");
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
     }
 
-    // Method to add a new purchase transaction
+  
+    //Método para agregar nuevo registro de transacción de compra
     public void addPurchaseDAO(ProductDTO productDTO) {
         try {
             String query = "INSERT INTO purchaseinfo VALUES(null,?,?,?,?,?)";
@@ -218,7 +272,7 @@ public class ProductDAO {
             prepStatement.setDouble(5, productDTO.getTotalCost());
 
             prepStatement.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Purchase log added.");
+            JOptionPane.showMessageDialog(null, "Registro de compra añadido.");
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -251,7 +305,8 @@ public class ProductDAO {
         deleteStock();
     }
 
-    // Method to update existing product details
+ 
+    //Método para actualizar detalles de un producto existente
     public void editProdDAO(ProductDTO productDTO) {
         try {
             String query = "UPDATE products SET productname=?,costprice=?,sellprice=?,brand=? WHERE productcode=?";
@@ -275,7 +330,7 @@ public class ProductDAO {
         }
     }
 
-    // Methods to handle updating of stocks in Inventory upon any transaction made
+    //Métodos para manejar la actualización de existencias en Inventario ante cualquier transacción realizada
     public void editPurchaseStock(String code, int quantity) {
         try {
             String query = "SELECT * FROM currentstock WHERE productcode='" +code+ "'";
@@ -317,7 +372,8 @@ public class ProductDAO {
         }
     }
 
-    // Method to permanently delete a product from inventory
+   
+    //Método para eliminar permanentemente un producto del inventario
     public void deleteProductDAO(String code) {
         try {
             String query = "DELETE FROM products WHERE productcode=?";
@@ -366,7 +422,7 @@ public class ProductDAO {
         deleteStock();
     }
 
-    // Sales transaction handling
+    // Manejo de transacciones de ventas
     public void sellProductDAO(ProductDTO productDTO, String username) {
         int quantity = 0;
         String prodCode = null;
@@ -392,14 +448,14 @@ public class ProductDAO {
                         "','"+productDTO.getQuantity()+"','"+productDTO.getTotalRevenue()+"','"+username+"')";
                 statement.executeUpdate(stockQuery);
                 statement.executeUpdate(salesQuery);
-                JOptionPane.showMessageDialog(null, "Product sold.");
+                JOptionPane.showMessageDialog(null, "Producto vendido!");
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
     }
 
-    // Products data set retrieval for display
+    // Recuperación de data de productos para visualización
     public ResultSet getQueryResult() {
         try {
             String query = "SELECT productcode,productname,costprice,sellprice,brand FROM products ORDER BY pid";
@@ -410,7 +466,7 @@ public class ProductDAO {
         return resultSet;
     }
 
-    // Purchase table data set retrieval
+    //Recuperación de data de la tabla de compras
     public ResultSet getPurchaseInfo() {
         try {
             String query = "SELECT PurchaseID,purchaseinfo.ProductCode,ProductName,Quantity,Totalcost " +
@@ -423,7 +479,7 @@ public class ProductDAO {
         return resultSet;
     }
 
-    // Stock table data set retrieval
+    // Recuperar data del stock existente
     public ResultSet getCurrentStockInfo() {
         try {
             String query = """
@@ -439,7 +495,7 @@ public class ProductDAO {
         return resultSet;
     }
 
-    // Sales table data set retrieval
+    // Recuperacion de data de la tabla de ventas
     public ResultSet getSalesInfo() {
         try {
             String query = """
@@ -457,7 +513,7 @@ public class ProductDAO {
         return resultSet;
     }
 
-    // Search method for products
+    // Método para buscar productos
     public ResultSet getProductSearch(String text) {
         try {
             String query = "SELECT productcode,productname,costprice,sellprice,brand FROM products " +
@@ -480,7 +536,7 @@ public class ProductDAO {
         return resultSet;
     }
 
-    // Search method for sales
+    // Método para buscar ventas
     public ResultSet getSalesSearch(String text) {
         try {
             String query = "SELECT salesid,salesinfo.productcode,productname,\n" +
@@ -500,7 +556,7 @@ public class ProductDAO {
         return resultSet;
     }
 
-    // Search method for purchase logs
+    // Método para buscar registro de compras
     public ResultSet getPurchaseSearch(String text) {
         try {
             String query = "SELECT PurchaseID,purchaseinfo.productcode,products.productname,quantity,totalcost " +
@@ -556,46 +612,62 @@ public class ProductDAO {
         return name;
     }
 
-    public String getPurchaseDate(int ID) {
+    public String getPurchaseDate(int ID) 
+    {
         String date = null;
-        try {
+        try 
+        {
             String query = "SELECT date FROM purchaseinfo WHERE purchaseid='" +ID+ "'";
             resultSet = statement.executeQuery(query);
             if (resultSet.next())
                 date = resultSet.getString("date");
-        } catch (SQLException throwables) {
+        } 
+        catch (SQLException throwables) 
+        {
             throwables.printStackTrace();
         }
         return date;
     }
-    public String getSaleDate(int ID) {
+    public String getSaleDate(int ID) 
+    {
         String date = null;
-        try {
+        try 
+        {
             String query = "SELECT date FROM salesinfo WHERE salesid='" +ID+ "'";
             resultSet = statement.executeQuery(query);
             if (resultSet.next())
+            {
                 date = resultSet.getString("date");
-        } catch (SQLException throwables) {
+            }
+        } 
+        catch (SQLException throwables) 
+        {
             throwables.printStackTrace();
         }
         return date;
     }
 
 
-    // Method to display product-related data set in tabular form
-    public DefaultTableModel buildTableModel(ResultSet resultSet) throws SQLException {
+ 
+    //Método para desplegar data relacionada a Productos, de forma tabular
+    public DefaultTableModel buildTableModel(ResultSet resultSet) throws SQLException 
+    {
         ResultSetMetaData metaData = resultSet.getMetaData();
         Vector<String> columnNames = new Vector<String>();
         int colCount = metaData.getColumnCount();
 
-        for (int col=1; col <= colCount; col++){
+        for (int col=1; col <= colCount; col++)
+        {
             columnNames.add(metaData.getColumnName(col).toUpperCase(Locale.ROOT));
         }
 
         Vector<Vector<Object>> data = new Vector<Vector<Object>>();
-        while (resultSet.next()) {
+        
+        while (resultSet.next()) 
+        {
             Vector<Object> vector = new Vector<Object>();
-            for (int col=1; col<=colCount; col++) {
+            for (int col=1; col<=colCount; col++) 
+            {
                 vector.add(resultSet.getObject(col));
             }
             data.add(vector);

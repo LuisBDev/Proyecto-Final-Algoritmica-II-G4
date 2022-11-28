@@ -1,16 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.inventory.DTO;
 
-/**
- *
- * @author asjad
- */
 
-// Data Transfer Object (DTO) class for Suppliers
+
+// Clase Data Transfer Object (DTO) para Proveedores (Suppliers)
 
 public class SupplierDTO {
 

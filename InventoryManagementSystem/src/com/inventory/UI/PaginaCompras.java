@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.inventory.UI;
 
 import com.inventory.DAO.ProductDAO;
@@ -13,10 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author asjad
- */
+
 public class PaginaCompras extends javax.swing.JPanel {
 
     ProductDTO productDTO;
@@ -26,9 +18,7 @@ public class PaginaCompras extends javax.swing.JPanel {
     int quantity;
     String prodCode = null;
     
-    /**
-     * Creates new form PurchasePage
-     */
+
     
     public PaginaCompras(Dashboard dashboard) {
         initComponents();
@@ -76,7 +66,7 @@ public class PaginaCompras extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
 
         jLabel1.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
-        jLabel1.setText("COMPRAS");
+        jLabel1.setText("REGISTRO DE COMPRAS");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Compra Producto"));
 
@@ -270,7 +260,7 @@ public class PaginaCompras extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -346,14 +336,18 @@ public class PaginaCompras extends javax.swing.JPanel {
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         if (purchaseTable.getSelectedRow()<0)
+        {
             JOptionPane.showMessageDialog(null, "Please select a transaction from the table.");
-        else {
+        }
+        else 
+        {
             int opt = JOptionPane.showConfirmDialog(
                     null,
                     "Are you sure you want to delete this purchase?",
                     "Confirmation",
                     JOptionPane.YES_NO_OPTION);
-            if(opt==JOptionPane.YES_OPTION) {
+            if(opt==JOptionPane.YES_OPTION) 
+            {
                 new ProductDAO().deletePurchaseDAO((int) purchaseTable.getValueAt(purchaseTable.getSelectedRow(),0));
                 new ProductDAO().editPurchaseStock(prodCode, quantity);
                 loadDataSet();
@@ -382,21 +376,27 @@ public class PaginaCompras extends javax.swing.JPanel {
 
         Object[] data = new Object[col];
         for (int i=0; i<col; i++)
+        {
             data[i] = purchaseTable.getValueAt(row, i);
+        }
         
         quantity = Integer.parseInt(data[3].toString());
         prodCode = data[1].toString();
     }//GEN-LAST:event_purchaseTableMouseClicked
 
     private void codeTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codeTextKeyReleased
-        try {
+        try 
+        {
             ResultSet resultSet = new ProductDAO().getProdFromCode(codeText.getText());
-            if (resultSet.next()) {
+            if (resultSet.next()) 
+            {
                 nameText.setText(resultSet.getString("productname"));
                 costText.setText(String.valueOf(resultSet.getDouble("costprice")));
                 sellText.setText(String.valueOf(resultSet.getDouble("sellprice")));
                 brandText.setText(resultSet.getString("brand"));
-            } else {
+            } 
+            else 
+            {
                 nameText.setText("");
                 costText.setText("");
                 sellText.setText("");
@@ -408,7 +408,7 @@ public class PaginaCompras extends javax.swing.JPanel {
 
     }//GEN-LAST:event_codeTextKeyReleased
 
-    // Method to load and update combo box containing supplier names
+    // Método para cargar y actualizar combo box que contengan nombres de proveedores
     public void loadComboBox() {
         try {
             SupplierDAO supplierDAO = new SupplierDAO();
@@ -418,7 +418,7 @@ public class PaginaCompras extends javax.swing.JPanel {
         }
     }
 
-    // Method to load data into table
+    // Método para cargar la data en la tabla
     public void loadDataSet() {
         try {
             ProductDAO productDAO = new ProductDAO();
