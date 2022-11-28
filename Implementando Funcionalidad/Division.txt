@@ -1,0 +1,15 @@
+StockActual Willy
+ClientePagina Willy
+
+Dashboard Luis
+PaginaInicio Luis
+
+PaginaLogin Carlos
+PaginaProductos Carlos
+
+PaginaCompras Adrian
+PaginaVentas Adrian
+
+PaginaProveedores Alex
+PaginaLogUsuarios Alex 
+PaginaUsuarios Alex
