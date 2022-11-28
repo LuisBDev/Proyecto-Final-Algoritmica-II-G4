@@ -18,11 +18,8 @@ public class PaginaLogin extends javax.swing.JFrame {
     UserDTO userDTO;
     LocalDateTime inTime;
 
-    /**
-     * Creates new form LoginPage
-     */
-
-    // Constructor method
+ 
+    // Método constructor
     public PaginaLogin() {
         initComponents();
         userDTO = new UserDTO();
@@ -185,7 +182,7 @@ public class PaginaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_clearButtonActionPerformed
 
     private void passTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passTextActionPerformed
-        // TODO add your handling code here:
+        
         loginButtonActionPerformed(evt);
     }//GEN-LAST:event_passTextActionPerformed
 

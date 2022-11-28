@@ -15,10 +15,6 @@ import java.sql.*;
 import java.util.Locale;
 import java.util.Vector;
 
-/**
- *
- * @author asjad
- */
 
 // Data Access Object class for Users
 
@@ -39,7 +35,7 @@ public class UserDAO {
     }
 
 
-    // Methods to add new user
+    // Método para agregar nuevo usuario
     public void addUserDAO(UserDTO userDTO, String userType) {
         try {
             String query = "SELECT * FROM users WHERE name='"
@@ -53,7 +49,7 @@ public class UserDAO {
                     +"'";
             resultSet = statement.executeQuery(query);
             if(resultSet.next())
-                JOptionPane.showMessageDialog(null, "User already exists");
+                JOptionPane.showMessageDialog(null, "El usuario ya existe!");
             else
                 addFunction(userDTO, userType);
         } catch (Exception ex) {
@@ -97,8 +93,8 @@ public class UserDAO {
             prepStatement.executeUpdate();
 
             if("ADMINISTRATOR".equals(userType))
-                JOptionPane.showMessageDialog(null, "New administrator added.");
-            else JOptionPane.showMessageDialog(null, "New employee added.");
+                JOptionPane.showMessageDialog(null, "Nuevo administrador añadido.");
+            else JOptionPane.showMessageDialog(null, "Nuevo empleado añadido.");
 
         } catch (Exception ex){
             ex.printStackTrace();
@@ -124,36 +120,43 @@ public class UserDAO {
         }
     }
 
-    // Method to delete existing user
+    // Método para eliminar usuario existente
     public void deleteUserDAO(String username) {
         try {
             String query = "DELETE FROM users WHERE username=?";
             prepStatement = (PreparedStatement) conn.prepareStatement(query);
             prepStatement.setString(1, username);
             prepStatement.executeUpdate();
-            JOptionPane.showMessageDialog(null, "User Deleted.");
+            JOptionPane.showMessageDialog(null, "Usuario eliminado.");
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
         new PaginaUsers().loadDataSet();
     }
 
-    // Method to retrieve data set to display in table
-    public ResultSet getQueryResult() {
-        try {
+    // Método para recuperar data a desplgar en la tabla
+    public ResultSet getQueryResult() 
+    {
+        try 
+        {
             String query = "SELECT * FROM users";
             resultSet = statement.executeQuery(query);
-        } catch (SQLException throwables) {
+        } 
+        catch (SQLException throwables) 
+        {
             throwables.printStackTrace();
         }
         return resultSet;
     }
 
     public ResultSet getUserDAO(String username) {
-        try {
+        try 
+        {
             String query = "SELECT * FROM users WHERE username='" +username+ "'";
             resultSet = statement.executeQuery(query);
-        } catch (SQLException ex) {
+        } 
+        catch (SQLException ex) 
+        {
             ex.printStackTrace();
         }
         return resultSet;

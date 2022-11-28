@@ -306,29 +306,29 @@ public class PaginaCompras extends javax.swing.JPanel {
         productDTO = new ProductDTO();
         if (codeText.getText().equals("") || jDateChooser1.getDate()==null
                 || quantityText.getText().equals(""))
-            JOptionPane.showMessageDialog(null, "Please enter all the required details.");
+            JOptionPane.showMessageDialog(null, "Rellenar todos los campos.");
         else {
             productDTO.setSuppCode(new ProductDAO().getSuppCode(suppCombo.getSelectedItem().toString()));
             productDTO.setProdCode(codeText.getText());
             try {
                 ResultSet resultSet = new ProductDAO().getProdName(codeText.getText());
-                if (resultSet.next()) {
-                    //productDTO.setProdName(nameText.getText());
+                if (resultSet.next()) 
+                {
                     productDTO.setDate(jDateChooser1.getDate().toString());
                     productDTO.setQuantity(Integer.parseInt(quantityText.getText()));
-                    //productDTO.setCostPrice(Double.parseDouble(costText.getText()));
-                    //productDTO.setSellPrice(Double.parseDouble(sellText.getText()));
-                    //productDTO.setBrand(brandText.getText());
                     Double costPrice = Double.parseDouble(costText.getText());
                     Double totalCost = costPrice * Integer.parseInt(quantityText.getText());
                     productDTO.setTotalCost(totalCost);
 
                     new ProductDAO().addPurchaseDAO(productDTO);
                     loadDataSet();
-                } else
-                    JOptionPane.showMessageDialog(null, "This seems to be a new product" +
-                            " that hasn't been added yet.\nPlease add this product in the \"Products\" section before proceeding.");
-            } catch (SQLException e) {
+                } 
+                else
+                    JOptionPane.showMessageDialog(null, "Parece ser un nuevo producto" +
+                            " que no ha sido añadido aún\nPor favor agrega este producto en la sección\"Productos\" antes de proceder.");
+            } 
+            catch (SQLException e) 
+            {
                 e.printStackTrace();
             }
         }
@@ -337,14 +337,14 @@ public class PaginaCompras extends javax.swing.JPanel {
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         if (purchaseTable.getSelectedRow()<0)
         {
-            JOptionPane.showMessageDialog(null, "Please select a transaction from the table.");
+            JOptionPane.showMessageDialog(null, "Por favor selecciona una transacción de la tabla.");
         }
         else 
         {
             int opt = JOptionPane.showConfirmDialog(
                     null,
-                    "Are you sure you want to delete this purchase?",
-                    "Confirmation",
+                    "Seguro que quieres eliminar esta compra?",
+                    "Confirmación",
                     JOptionPane.YES_NO_OPTION);
             if(opt==JOptionPane.YES_OPTION) 
             {
