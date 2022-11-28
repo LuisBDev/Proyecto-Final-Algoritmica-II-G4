@@ -30,8 +30,8 @@ public class StockActual extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        stockTable = new javax.swing.JTable();
+        refreshButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
@@ -51,7 +51,7 @@ public class StockActual extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Impact", 0, 28)); // NOI18N
         jLabel1.setText("Stock actual");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        stockTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -70,20 +70,25 @@ public class StockActual extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setDragEnabled(true);
-        jTable1.setRowSelectionAllowed(false);
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
-            jTable1.getColumnModel().getColumn(3).setResizable(false);
-            jTable1.getColumnModel().getColumn(4).setResizable(false);
+        stockTable.setDragEnabled(true);
+        stockTable.setRowSelectionAllowed(false);
+        stockTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(stockTable);
+        if (stockTable.getColumnModel().getColumnCount() > 0) {
+            stockTable.getColumnModel().getColumn(0).setResizable(false);
+            stockTable.getColumnModel().getColumn(1).setResizable(false);
+            stockTable.getColumnModel().getColumn(2).setResizable(false);
+            stockTable.getColumnModel().getColumn(3).setResizable(false);
+            stockTable.getColumnModel().getColumn(4).setResizable(false);
         }
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setText("Actualizar");
+        refreshButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        refreshButton.setText("Actualizar");
+        refreshButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshButtonActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/user_icon_150670.png"))); // NOI18N
@@ -186,7 +191,7 @@ public class StockActual extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(refreshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -206,7 +211,7 @@ public class StockActual extends javax.swing.JFrame {
                         .addGap(19, 19, 19)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(refreshButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
@@ -219,6 +224,21 @@ public class StockActual extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void refreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshButtonActionPerformed
+        //loadDataSet();
+    }//GEN-LAST:event_refreshButtonActionPerformed
+    
+    //Método para cargar la data en la tabla
+    /*
+    public void loadDataSet(){
+        try{
+            ProductDAO productDAO = new ProductDAO();
+            stockTable.setModel(productDAO.buildTableModel(productDAO.getCurrentStockInfo()));
+        } catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+    */
     /**
      * @param args the command line arguments
      */
@@ -255,7 +275,6 @@ public class StockActual extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
@@ -271,6 +290,7 @@ public class StockActual extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JButton refreshButton;
+    private javax.swing.JTable stockTable;
     // End of variables declaration//GEN-END:variables
 }
