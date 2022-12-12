@@ -16,8 +16,8 @@ public class ConnectionFactory {
 
     static final String driver = "com.mysql.cj.jdbc.Driver";
     static final String url = "jdbc:mysql://localhost:3306/inventory";
-    static String username;
-    static String password;
+    static String username = "root";
+    static String password = "root";
 
     Properties prop;
 
@@ -26,7 +26,7 @@ public class ConnectionFactory {
     ResultSet resultSet = null;
 
     public ConnectionFactory(){
-        try 
+        /*try 
         {
             //Username y  Password guardados en un xml para no recompilar.
             prop = new Properties();
@@ -38,7 +38,8 @@ public class ConnectionFactory {
         }
         username = prop.getProperty("username");
         password = prop.getProperty("password");
-
+        */
+        
         try 
         {
             Class.forName(driver);
