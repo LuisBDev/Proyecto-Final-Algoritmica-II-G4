@@ -171,7 +171,7 @@ public class PaginaProveedores extends javax.swing.JPanel {
                     .addComponent(deleteButton)
                     .addComponent(editButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(clearButton)
+                .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -194,6 +194,11 @@ public class PaginaProveedores extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(suppTable);
 
+        searchText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchTextActionPerformed(evt);
+            }
+        });
         searchText.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 searchTextKeyReleased(evt);
@@ -257,7 +262,7 @@ public class PaginaProveedores extends javax.swing.JPanel {
         if (codeText.getText().equals("") || nameText.getText().equals("")
                 || locationText.getText().equals("") || phoneText.getText().equals(""))
         {
-            JOptionPane.showMessageDialog(this, "Please enter all the required details.");
+            JOptionPane.showMessageDialog(this, "Rellene todos los campos.");
         }
         else 
         {
@@ -273,11 +278,11 @@ public class PaginaProveedores extends javax.swing.JPanel {
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
         if (suppTable.getSelectedRow()<0)
-            JOptionPane.showMessageDialog(this, "Please select an entry to edit from the table.");
+            JOptionPane.showMessageDialog(this, "Seleccione una entrada para editar en la tabla");
         else {
             if (codeText.getText().equals("") || nameText.getText().equals("")
                     || locationText.getText().equals("") || phoneText.getText().equals(""))
-                JOptionPane.showMessageDialog(this, "Please enter all the required details.");
+                JOptionPane.showMessageDialog(this, "Rellene todos los cmapos.");
             else {
                 SupplierDTO supplierDTO = new SupplierDTO();
                 supplierDTO.setSuppCode(codeText.getText());
@@ -293,14 +298,14 @@ public class PaginaProveedores extends javax.swing.JPanel {
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         if (suppTable.getSelectedRow()<0)
         {
-            JOptionPane.showMessageDialog(this, "Please select an entry from the table to be deleted.");
+            JOptionPane.showMessageDialog(this, "Seleccione una entrada para editar en la tabla.");
         }
         else 
         {
             int opt = JOptionPane.showConfirmDialog(
                     this,
-                    "Are you sure you want to delete this supplier?",
-                    "Confirmation",
+                    "Seguro que quiere eliminar este proveedor?",
+                    "Confirmación",
                     JOptionPane.YES_NO_OPTION);
             if (opt==JOptionPane.YES_OPTION) 
             {
@@ -322,6 +327,10 @@ public class PaginaProveedores extends javax.swing.JPanel {
         String text = searchText.getText();
         loadSearchData(text);
     }//GEN-LAST:event_searchTextKeyReleased
+
+    private void searchTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchTextActionPerformed
 
 
     // Method to load data into table

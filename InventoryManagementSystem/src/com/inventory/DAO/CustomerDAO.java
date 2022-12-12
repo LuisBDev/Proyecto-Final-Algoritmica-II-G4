@@ -47,7 +47,8 @@ public class CustomerDAO {
         }
     }
     public void addFunction(CustomerDTO customerDTO) {
-        try {
+        try 
+        {
             String query = "INSERT INTO customers VALUES(null,?,?,?,?)";
             prepStatement = conn.prepareStatement(query);
             prepStatement.setString(1, customerDTO.getCustCode());
@@ -56,7 +57,9 @@ public class CustomerDAO {
             prepStatement.setString(4, customerDTO.getPhone());
             prepStatement.executeUpdate();
             JOptionPane.showMessageDialog(null, "Nuevo cliente añadido!");
-        } catch (SQLException e) {
+        } 
+        catch (SQLException e) 
+        {
             e.printStackTrace();
         }
 

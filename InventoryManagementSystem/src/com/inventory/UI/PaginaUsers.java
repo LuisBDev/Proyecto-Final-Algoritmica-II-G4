@@ -231,7 +231,7 @@ public class PaginaUsers extends javax.swing.JPanel {
         UserDTO userDTO = new UserDTO();
 
         if (nameText.getText().equals("") || locationText.getText().equals("") || phoneText.getText().equals(""))
-            JOptionPane.showMessageDialog(null, "Please fill all the required fields.");
+            JOptionPane.showMessageDialog(null, "Rellenar todos los campos requeridos");
         else {
             userType = (String) userTypeCombo.getSelectedItem();
             userDTO.setFullName(nameText.getText());
@@ -247,12 +247,12 @@ public class PaginaUsers extends javax.swing.JPanel {
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         if (userTable.getSelectedRow()<0)
-            JOptionPane.showMessageDialog(null, "Please select an entry from the table");
+            JOptionPane.showMessageDialog(null, "Seleccione una entrada de la tabla");
         else{
             int opt = JOptionPane.showConfirmDialog(
                     null,
-                    "Are you sure you want to delete this user?",
-                    "Confirmation",
+                    "Seguro de eliminar a este usuario?",
+                    "Confirmación",
                     JOptionPane.YES_NO_OPTION);
             if(opt==JOptionPane.YES_OPTION) {
                 new UserDAO().deleteUserDAO(

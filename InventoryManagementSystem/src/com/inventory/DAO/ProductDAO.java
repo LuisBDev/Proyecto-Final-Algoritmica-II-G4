@@ -434,9 +434,9 @@ public class ProductDAO {
                 quantity = resultSet.getInt("quantity");
             }
             if (productDTO.getQuantity()>quantity)
-                JOptionPane.showMessageDialog(null, "Insufficient stock for this product.");
+                JOptionPane.showMessageDialog(null, "Stock Insuficiente para este producto!! (Stock: "+quantity+")");
             else if (productDTO.getQuantity()<=0)
-                JOptionPane.showMessageDialog(null, "Please enter a valid quantity");
+                JOptionPane.showMessageDialog(null, "Ingrese una cantidad valida para este producto.");
             else {
                 String stockQuery = "UPDATE currentstock SET quantity=quantity-'"
                         +productDTO.getQuantity()

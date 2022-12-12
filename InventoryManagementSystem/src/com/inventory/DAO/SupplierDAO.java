@@ -10,7 +10,7 @@ import java.util.Locale;
 import java.util.Vector;
 
 
-// Data Access Object for Suppliers
+// Data Access Object para Proveedores (Suppliers)
 public class SupplierDAO {
 
     Connection conn = null;
@@ -27,7 +27,7 @@ public class SupplierDAO {
         }
     }
 
-    // Methods to add new supplier
+    //Metodos para agregar mas proveedores.
     public void addSupplierDAO(SupplierDTO supplierDTO) {
         try {
             String query = "SELECT * FROM suppliers WHERE fullname='"
@@ -39,9 +39,13 @@ public class SupplierDAO {
                     + "'";
             resultSet = statement.executeQuery(query);
             if (resultSet.next())
-                JOptionPane.showMessageDialog(null, "This supplier already exists.");
+            {
+                JOptionPane.showMessageDialog(null, "Este proveedor ya existe. No se puede agregar");
+            }
             else
+            {
                 addFunction(supplierDTO);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -55,7 +59,7 @@ public class SupplierDAO {
             prepStatement.setString(3, supplierDTO.getLocation());
             prepStatement.setString(4, supplierDTO.getPhone());
             prepStatement.executeUpdate();
-            JOptionPane.showMessageDialog(null, "New supplier has been added successfully.");
+            JOptionPane.showMessageDialog(null, "Nuevo proveedor agregado correctamente.");
         } catch (SQLException e) {
             e.printStackTrace();
         }

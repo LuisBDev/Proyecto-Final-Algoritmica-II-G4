@@ -12,7 +12,7 @@ import java.awt.event.WindowEvent;
 import java.time.LocalDateTime;
 
 
-// Main frame for the application after successful login
+
 public class Dashboard extends javax.swing.JFrame {
 
     CardLayout layout;
@@ -37,7 +37,6 @@ public class Dashboard extends javax.swing.JFrame {
             notForEmployee();
         currentUserSession();
 
-        // Panel Layout set to Card Layout to allow switching between different sections
         displayPanel.setLayout(layout);
         displayPanel.add("Home", new HomePage(username));
         displayPanel.add("Users", new PaginaUsers());
@@ -60,7 +59,7 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        setTitle("Inventory Manager");
+        setTitle("Sistema de Gestión de Inventarios");
         setVisible(true);
     }
 
@@ -419,7 +418,7 @@ public class Dashboard extends javax.swing.JFrame {
         nameLabel.setText("User: " + userDTO.getFullName() + " ("+userSelect+")");
     }
 
-    // Allows only the ADMINISTRATOR type user to view and manipulate 'Users' and 'User Logs'
+    //Metodo para visualizar 'User' y 'UserLogs' solo para administradores.
     public void notForEmployee(){
         navPanel.remove(usersButton);
         navPanel.remove(logsButton);

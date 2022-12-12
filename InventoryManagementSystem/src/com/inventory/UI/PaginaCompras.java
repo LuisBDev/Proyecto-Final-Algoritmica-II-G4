@@ -68,7 +68,7 @@ public class PaginaCompras extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
         jLabel1.setText("REGISTRO DE COMPRAS");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Compra Producto"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Comprar Producto"));
 
         jLabel2.setText("Proveedor:");
 
@@ -290,6 +290,8 @@ public class PaginaCompras extends javax.swing.JPanel {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
+
+        jPanel1.getAccessibleContext().setAccessibleName("Comprar Producto");
     }// </editor-fold>//GEN-END:initComponents
 
     private void refreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshButtonActionPerformed

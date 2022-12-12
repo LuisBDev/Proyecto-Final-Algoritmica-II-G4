@@ -16,19 +16,27 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="162" max="32767" attributes="0"/>
-              <Component id="welcomeLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jScrollPane1" min="-2" pref="575" max="-2" attributes="0"/>
+                  <Component id="welcomeLabel" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" pref="530" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="477" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="welcomeLabel" min="-2" pref="48" max="-2" attributes="0"/>
-              <EmptySpace pref="171" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="176" max="-2" attributes="0"/>
+              <EmptySpace pref="19" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -37,10 +45,40 @@
     <Component class="javax.swing.JLabel" name="welcomeLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Impact" size="36" style="0"/>
+          <Font name="Impact" size="30" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Bienvenido!"/>
       </Properties>
     </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/inventory/UI/Icons/logoeasystock-transformed.png"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="jTextArea1">
+          <Properties>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="rows" type="int" value="5"/>
+            <Property name="text" type="java.lang.String" value="Esta aplicaci&#xf3;n puede ser utilizada por cualquier tienda peque&#xf1;a o mediana&#xa;para mantener y administrar f&#xe1;cilmente un inventario de todos sus productos.&#xa;&#xa;&#x2022; Productos&#xa;&#x2022; Clientes&#xa;&#x2022; Proveedores&#xa;&#x2022; Usuarios&#xa;&#x2022; Transacciones"/>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
   </SubComponents>
 </Form>
