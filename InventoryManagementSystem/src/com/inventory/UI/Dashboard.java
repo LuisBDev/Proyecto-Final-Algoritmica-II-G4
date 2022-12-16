@@ -28,7 +28,7 @@ public class Dashboard extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(this);
         navPanel.setVisible(false);
-        menuPanel.setVisible(true);
+        //menuPanel.setVisible(true);
         layout = new CardLayout();
         userSelect = userType;
         this.username = username;
@@ -102,9 +102,8 @@ public class Dashboard extends javax.swing.JFrame {
     private void initComponents() {
 
         mainPanel = new javax.swing.JPanel();
-        menuPanel = new javax.swing.JPanel();
-        menuButton = new javax.swing.JButton();
         navPanel = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         homeButton = new javax.swing.JButton();
         prodButton = new javax.swing.JButton();
         stockButton = new javax.swing.JButton();
@@ -114,19 +113,168 @@ public class Dashboard extends javax.swing.JFrame {
         usersButton = new javax.swing.JButton();
         purchaseButton = new javax.swing.JButton();
         logsButton = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         displayPanel = new javax.swing.JPanel();
-        userPanel = new javax.swing.JPanel();
-        nameLabel = new javax.swing.JLabel();
+        menuButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         logoutButton = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        nameLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Inventory Manager");
         setBounds(new java.awt.Rectangle(400, 100, 0, 0));
+        setResizable(false);
+        setSize(new java.awt.Dimension(1061, 652));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        menuPanel.setPreferredSize(new java.awt.Dimension(120, 26));
+        mainPanel.setBackground(new java.awt.Color(255, 255, 255));
+        mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        navPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        navPanel.setOpaque(false);
+        navPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Impact", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("USER LOGS");
+        navPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 480, 90, 40));
+
+        homeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/homepages_home_house_icon_150665.png"))); // NOI18N
+        homeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        homeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeButtonActionPerformed(evt);
+            }
+        });
+        navPanel.add(homeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 170, 35));
+
+        prodButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/ButtonIcons/products.png"))); // NOI18N
+        prodButton.setBorderPainted(false);
+        prodButton.setContentAreaFilled(false);
+        prodButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        prodButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prodButtonActionPerformed(evt);
+            }
+        });
+        navPanel.add(prodButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 100, 50));
+
+        stockButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/ButtonIcons/currentstock.png"))); // NOI18N
+        stockButton.setContentAreaFilled(false);
+        stockButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        stockButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stockButtonActionPerformed(evt);
+            }
+        });
+        navPanel.add(stockButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 98, 50));
+
+        custButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/ButtonIcons/customers.png"))); // NOI18N
+        custButton.setContentAreaFilled(false);
+        custButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        custButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                custButtonActionPerformed(evt);
+            }
+        });
+        navPanel.add(custButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 98, 50));
+
+        suppButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/ButtonIcons/suppliers.png"))); // NOI18N
+        suppButton.setContentAreaFilled(false);
+        suppButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        suppButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                suppButtonActionPerformed(evt);
+            }
+        });
+        navPanel.add(suppButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 98, 50));
+
+        salesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/ButtonIcons/sales.png"))); // NOI18N
+        salesButton.setContentAreaFilled(false);
+        salesButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        salesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salesButtonActionPerformed(evt);
+            }
+        });
+        navPanel.add(salesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 98, 50));
+
+        usersButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/ButtonIcons/users.png"))); // NOI18N
+        usersButton.setContentAreaFilled(false);
+        usersButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        usersButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usersButtonActionPerformed(evt);
+            }
+        });
+        navPanel.add(usersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 98, 50));
+
+        purchaseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/ButtonIcons/purchase.png"))); // NOI18N
+        purchaseButton.setContentAreaFilled(false);
+        purchaseButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        purchaseButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                purchaseButtonActionPerformed(evt);
+            }
+        });
+        navPanel.add(purchaseButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 98, 50));
+
+        logsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/ButtonIcons/userlogs.png"))); // NOI18N
+        logsButton.setContentAreaFilled(false);
+        logsButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        logsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logsButtonActionPerformed(evt);
+            }
+        });
+        navPanel.add(logsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 100, 50));
+
+        jLabel3.setFont(new java.awt.Font("Impact", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("PRODUCTOS");
+        navPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 90, 40));
+
+        jLabel4.setFont(new java.awt.Font("Impact", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("STOCK ACTUAL");
+        navPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 90, 40));
+
+        jLabel5.setFont(new java.awt.Font("Impact", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("CLIENTES");
+        navPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 90, 40));
+
+        jLabel6.setFont(new java.awt.Font("Impact", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("PROVEEDORES");
+        navPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 90, 40));
+
+        jLabel7.setFont(new java.awt.Font("Impact", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("VENTAS");
+        navPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, 90, 40));
+
+        jLabel8.setFont(new java.awt.Font("Impact", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("COMPRAS");
+        navPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 360, 90, 40));
+
+        jLabel9.setFont(new java.awt.Font("Impact", 0, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("USUARIOS");
+        navPanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 420, 90, 40));
+
+        mainPanel.add(navPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 220, -1));
+
+        displayPanel.setLayout(new java.awt.CardLayout());
+        mainPanel.add(displayPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 830, 590));
 
         menuButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         menuButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/menu_icon_150667.png"))); // NOI18N
@@ -137,238 +285,33 @@ public class Dashboard extends javax.swing.JFrame {
                 menuButtonActionPerformed(evt);
             }
         });
+        mainPanel.add(menuButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 170, 46));
 
-        javax.swing.GroupLayout menuPanelLayout = new javax.swing.GroupLayout(menuPanel);
-        menuPanel.setLayout(menuPanelLayout);
-        menuPanelLayout.setHorizontalGroup(
-            menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(menuButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        menuPanelLayout.setVerticalGroup(
-            menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menuPanelLayout.createSequentialGroup()
-                .addComponent(menuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/background.jpg"))); // NOI18N
+        mainPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 690));
 
-        navPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/logoversion2.jpg"))); // NOI18N
+        jLabel10.setText("jLabel10");
+        mainPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 4, 280, 50));
 
-        homeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/homepages_home_house_icon_150665.png"))); // NOI18N
-        homeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        homeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                homeButtonActionPerformed(evt);
-            }
-        });
-
-        prodButton.setText("Productos");
-        prodButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        prodButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                prodButtonActionPerformed(evt);
-            }
-        });
-
-        stockButton.setText("Stock Actual");
-        stockButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        stockButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                stockButtonActionPerformed(evt);
-            }
-        });
-
-        custButton.setText("Clientes");
-        custButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        custButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                custButtonActionPerformed(evt);
-            }
-        });
-
-        suppButton.setText("Proveedores");
-        suppButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        suppButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                suppButtonActionPerformed(evt);
-            }
-        });
-
-        salesButton.setText("Ventas");
-        salesButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        salesButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                salesButtonActionPerformed(evt);
-            }
-        });
-
-        usersButton.setText("Usuario");
-        usersButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        usersButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usersButtonActionPerformed(evt);
-            }
-        });
-
-        purchaseButton.setText("Compras");
-        purchaseButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        purchaseButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                purchaseButtonActionPerformed(evt);
-            }
-        });
-
-        logsButton.setText("Usuario Logs");
-        logsButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        logsButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logsButtonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout navPanelLayout = new javax.swing.GroupLayout(navPanel);
-        navPanel.setLayout(navPanelLayout);
-        navPanelLayout.setHorizontalGroup(
-            navPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(navPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(navPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(homeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(prodButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(stockButton, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
-                    .addComponent(custButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(suppButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(salesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(usersButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(purchaseButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(logsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        navPanelLayout.setVerticalGroup(
-            navPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(navPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(prodButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(stockButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(custButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(suppButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(salesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(purchaseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(usersButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(logsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
-        );
-
-        displayPanel.setLayout(new java.awt.CardLayout());
-
-        nameLabel.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        nameLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/user_icon_150670.png"))); // NOI18N
-        nameLabel.setText("USUARIO:");
-        nameLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-
-        logoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/log-out_icon-icons.com_50106.png"))); // NOI18N
-        logoutButton.setText("Salir");
-        logoutButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        logoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/ButtonIcons/logout2.png"))); // NOI18N
+        logoutButton.setContentAreaFilled(false);
         logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutButtonActionPerformed(evt);
             }
         });
+        mainPanel.add(logoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 10, 70, 40));
 
-        javax.swing.GroupLayout userPanelLayout = new javax.swing.GroupLayout(userPanel);
-        userPanel.setLayout(userPanelLayout);
-        userPanelLayout.setHorizontalGroup(
-            userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(logoutButton)
-                .addGap(20, 20, 20))
-        );
-        userPanelLayout.setVerticalGroup(
-            userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(userPanelLayout.createSequentialGroup()
-                .addGroup(userPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nameLabel)
-                    .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 10, Short.MAX_VALUE))
-        );
+        nameLabel.setFont(new java.awt.Font("Impact", 0, 14)); // NOI18N
+        nameLabel.setForeground(new java.awt.Color(204, 0, 102));
+        nameLabel.setText("USUARIO:");
+        mainPanel.add(nameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 20, 190, 20));
 
-        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
-        mainPanel.setLayout(mainPanelLayout);
-        mainPanelLayout.setHorizontalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(navPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(menuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(userPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addComponent(displayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 838, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 21, Short.MAX_VALUE))))
-        );
-        mainPanelLayout.setVerticalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(userPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(displayPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(navPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
-
-        setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 670));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
-        int opt = JOptionPane.showConfirmDialog(
-                null,
-                "<html>¿Seguro que quiere salir?<br>Deberá iniciar sesion de nuevo.<html>",
-                "Confirmation",
-                JOptionPane.YES_NO_OPTION);
-        if (opt==JOptionPane.YES_OPTION){
-            outTime = LocalDateTime.now();
-            userDTO.setOutTime(String.valueOf(outTime));
-            userDTO.setUsername(username);
-            new UserDAO().addUserLogin(userDTO);
-            dispose();
-            PaginaLogin logPage = new PaginaLogin();
-            logPage.setVisible(true);
-        }
-    }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void usersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usersButtonActionPerformed
         addUsersPage();
@@ -411,7 +354,25 @@ public class Dashboard extends javax.swing.JFrame {
         addLogsPage();
     }//GEN-LAST:event_logsButtonActionPerformed
 
-    // Method to display the user currently logged in
+    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
+        int opt = JOptionPane.showConfirmDialog(
+            null,
+            "<html>¿Seguro que quiere salir?<br>Deberá iniciar sesion de nuevo.<html>",
+            "Confirmation",
+            JOptionPane.YES_NO_OPTION);
+        if (opt==JOptionPane.YES_OPTION){
+            outTime = LocalDateTime.now();
+            userDTO.setOutTime(String.valueOf(outTime));
+            userDTO.setUsername(username);
+            new UserDAO().addUserLogin(userDTO);
+            dispose();
+            PaginaLogin logPage = new PaginaLogin();
+            logPage.setVisible(true);
+        }
+    }//GEN-LAST:event_logoutButtonActionPerformed
+
+   
+    //Metodo para desplegar el usuario que esta logeado
     public void currentUserSession() {
         UserDTO userDTO = new UserDTO();
         new UserDAO().getFullName(userDTO, username);
@@ -429,14 +390,20 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton custButton;
     private javax.swing.JPanel displayPanel;
     private javax.swing.JButton homeButton;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JButton logoutButton;
     private javax.swing.JButton logsButton;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JButton menuButton;
-    private javax.swing.JPanel menuPanel;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JPanel navPanel;
     private javax.swing.JButton prodButton;
@@ -444,7 +411,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton salesButton;
     private javax.swing.JButton stockButton;
     private javax.swing.JButton suppButton;
-    private javax.swing.JPanel userPanel;
     private javax.swing.JButton usersButton;
     // End of variables declaration//GEN-END:variables
 }

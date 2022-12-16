@@ -35,22 +35,14 @@ public class HomePage extends javax.swing.JPanel {
     private void initComponents() {
 
         welcomeLabel = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(246, 246, 246));
 
         welcomeLabel.setFont(new java.awt.Font("Impact", 0, 30)); // NOI18N
         welcomeLabel.setText("Bienvenido!");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/logoeasystock-transformed.png"))); // NOI18N
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTextArea1.setForeground(new java.awt.Color(0, 0, 0));
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Esta aplicación puede ser utilizada por cualquier tienda pequeña o mediana\npara mantener y administrar fácilmente un inventario de todos sus productos.\n\n• Productos\n• Clientes\n• Proveedores\n• Usuarios\n• Transacciones");
-        jTextArea1.setEnabled(false);
-        jScrollPane1.setViewportView(jTextArea1);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/HatchfulExport-All/test111.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -58,30 +50,27 @@ public class HomePage extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(139, 139, 139)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 575, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(welcomeLabel)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(477, Short.MAX_VALUE))
+                .addComponent(welcomeLabel)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(191, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(190, 190, 190))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(welcomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addGap(48, 48, 48)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(102, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel welcomeLabel;
     // End of variables declaration//GEN-END:variables
 }

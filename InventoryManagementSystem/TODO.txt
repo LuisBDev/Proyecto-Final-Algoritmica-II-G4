@@ -1,0 +1,7 @@
+POR AGREGAR:
+nameLabel
+logoutButton
+- con employee desactivar user userlog labels
+
+TODO:
+- new login

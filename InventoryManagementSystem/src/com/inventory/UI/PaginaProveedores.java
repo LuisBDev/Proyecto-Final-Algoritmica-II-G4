@@ -298,7 +298,7 @@ public class PaginaProveedores extends javax.swing.JPanel {
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         if (suppTable.getSelectedRow()<0)
         {
-            JOptionPane.showMessageDialog(this, "Seleccione una entrada para editar en la tabla.");
+            JOptionPane.showMessageDialog(this, "Seleccione una entrada para eliminar en la tabla.");
         }
         else 
         {

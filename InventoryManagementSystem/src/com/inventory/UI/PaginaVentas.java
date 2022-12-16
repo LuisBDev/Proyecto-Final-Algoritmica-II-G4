@@ -281,7 +281,7 @@ public class PaginaVentas extends javax.swing.JPanel {
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         if (salesTable.getSelectedRow()<0)
-            JOptionPane.showMessageDialog(this, "Please select an entry from the table you wish to delete.");
+            JOptionPane.showMessageDialog(this, "Seleccione un registro de la tabla para eliminar.");
         else {
             int opt = JOptionPane.showConfirmDialog(
                     this,

@@ -228,7 +228,7 @@ public class ProductDAO {
                     + "'";
             resultSet = statement.executeQuery(query);
             if (resultSet.next())
-                JOptionPane.showMessageDialog(null, "Product has already been added.");
+                JOptionPane.showMessageDialog(null, "El producto ya ha sido añadido previamente.");
             else
                 addFunction(productDTO);
         } catch (SQLException e) {
@@ -324,7 +324,7 @@ public class ProductDAO {
 
             prepStatement.executeUpdate();
             prepStatement2.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Product details updated.");
+            JOptionPane.showMessageDialog(null, "Detalles del producto actualizados");
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -387,7 +387,7 @@ public class ProductDAO {
             prepStatement.executeUpdate();
             prepStatement2.executeUpdate();
 
-            JOptionPane.showMessageDialog(null, "Product has been removed.");
+            JOptionPane.showMessageDialog(null, "El producto ha sido eliminado.");
         } catch (SQLException e){
             e.printStackTrace();
         }
@@ -401,7 +401,7 @@ public class ProductDAO {
             prepStatement.setInt(1, ID);
             prepStatement.executeUpdate();
 
-            JOptionPane.showMessageDialog(null, "Transaction has been removed.");
+            JOptionPane.showMessageDialog(null, "La transacción ha sido removida.");
         } catch (SQLException e){
             e.printStackTrace();
         }
@@ -415,7 +415,7 @@ public class ProductDAO {
             prepStatement.setInt(1, ID);
             prepStatement.executeUpdate();
 
-            JOptionPane.showMessageDialog(null, "Transaction has been removed.");
+            JOptionPane.showMessageDialog(null, "La transacción ha sido removida.");
         } catch (SQLException e){
             e.printStackTrace();
         }
