@@ -5,3 +5,4 @@ logoutButton
 
 TODO:
 - new login
+- agregar hora de inicio de sesion en lugar de Welcome label.

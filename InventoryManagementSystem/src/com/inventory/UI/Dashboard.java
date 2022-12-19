@@ -38,7 +38,7 @@ public class Dashboard extends javax.swing.JFrame {
         currentUserSession();
 
         displayPanel.setLayout(layout);
-        displayPanel.add("Home", new HomePage(username));
+        displayPanel.add("Home", new HomePage(username,userType));
         displayPanel.add("Users", new PaginaUsers());
         displayPanel.add("Customers", new PaginaClientes());
         displayPanel.add("Products", new PaginaProductos(username, this));
@@ -144,7 +144,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Impact", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("USER LOGS");
-        navPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 480, 90, 40));
+        navPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 470, 90, 40));
 
         homeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/homepages_home_house_icon_150665.png"))); // NOI18N
         homeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -155,7 +155,7 @@ public class Dashboard extends javax.swing.JFrame {
         });
         navPanel.add(homeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 170, 35));
 
-        prodButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/ButtonIcons/products.png"))); // NOI18N
+        prodButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/PichonIcons/icons8_open_box_40px.png"))); // NOI18N
         prodButton.setBorderPainted(false);
         prodButton.setContentAreaFilled(false);
         prodButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -164,9 +164,9 @@ public class Dashboard extends javax.swing.JFrame {
                 prodButtonActionPerformed(evt);
             }
         });
-        navPanel.add(prodButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 100, 50));
+        navPanel.add(prodButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 100, 50));
 
-        stockButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/ButtonIcons/currentstock.png"))); // NOI18N
+        stockButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/PichonIcons/icons8_sell_stock_48px.png"))); // NOI18N
         stockButton.setContentAreaFilled(false);
         stockButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         stockButton.addActionListener(new java.awt.event.ActionListener() {
@@ -174,9 +174,9 @@ public class Dashboard extends javax.swing.JFrame {
                 stockButtonActionPerformed(evt);
             }
         });
-        navPanel.add(stockButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 98, 50));
+        navPanel.add(stockButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 98, 50));
 
-        custButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/ButtonIcons/customers.png"))); // NOI18N
+        custButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/PichonIcons/icons8_reception_48px.png"))); // NOI18N
         custButton.setContentAreaFilled(false);
         custButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         custButton.addActionListener(new java.awt.event.ActionListener() {
@@ -184,9 +184,9 @@ public class Dashboard extends javax.swing.JFrame {
                 custButtonActionPerformed(evt);
             }
         });
-        navPanel.add(custButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 98, 50));
+        navPanel.add(custButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 98, 50));
 
-        suppButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/ButtonIcons/suppliers.png"))); // NOI18N
+        suppButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/PichonIcons/icons8_supplier_48px.png"))); // NOI18N
         suppButton.setContentAreaFilled(false);
         suppButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         suppButton.addActionListener(new java.awt.event.ActionListener() {
@@ -194,9 +194,9 @@ public class Dashboard extends javax.swing.JFrame {
                 suppButtonActionPerformed(evt);
             }
         });
-        navPanel.add(suppButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 98, 50));
+        navPanel.add(suppButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 98, 50));
 
-        salesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/ButtonIcons/sales.png"))); // NOI18N
+        salesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/PichonIcons/icons8_winter_sales_50px_1.png"))); // NOI18N
         salesButton.setContentAreaFilled(false);
         salesButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         salesButton.addActionListener(new java.awt.event.ActionListener() {
@@ -204,9 +204,9 @@ public class Dashboard extends javax.swing.JFrame {
                 salesButtonActionPerformed(evt);
             }
         });
-        navPanel.add(salesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 98, 50));
+        navPanel.add(salesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 98, 50));
 
-        usersButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/ButtonIcons/users.png"))); // NOI18N
+        usersButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/PichonIcons/icons8_users_48px.png"))); // NOI18N
         usersButton.setContentAreaFilled(false);
         usersButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         usersButton.addActionListener(new java.awt.event.ActionListener() {
@@ -214,9 +214,9 @@ public class Dashboard extends javax.swing.JFrame {
                 usersButtonActionPerformed(evt);
             }
         });
-        navPanel.add(usersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 98, 50));
+        navPanel.add(usersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 98, 50));
 
-        purchaseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/ButtonIcons/purchase.png"))); // NOI18N
+        purchaseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/PichonIcons/icons8_return_purchase_48px.png"))); // NOI18N
         purchaseButton.setContentAreaFilled(false);
         purchaseButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         purchaseButton.addActionListener(new java.awt.event.ActionListener() {
@@ -224,9 +224,9 @@ public class Dashboard extends javax.swing.JFrame {
                 purchaseButtonActionPerformed(evt);
             }
         });
-        navPanel.add(purchaseButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 98, 50));
+        navPanel.add(purchaseButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 98, 50));
 
-        logsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/ButtonIcons/userlogs.png"))); // NOI18N
+        logsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/PichonIcons/icons8_password_40px.png"))); // NOI18N
         logsButton.setContentAreaFilled(false);
         logsButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         logsButton.addActionListener(new java.awt.event.ActionListener() {
@@ -234,47 +234,47 @@ public class Dashboard extends javax.swing.JFrame {
                 logsButtonActionPerformed(evt);
             }
         });
-        navPanel.add(logsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 100, 50));
+        navPanel.add(logsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 100, 50));
 
         jLabel3.setFont(new java.awt.Font("Impact", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("PRODUCTOS");
-        navPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 90, 40));
+        navPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 90, 40));
 
         jLabel4.setFont(new java.awt.Font("Impact", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("STOCK ACTUAL");
-        navPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 90, 40));
+        navPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 90, 40));
 
         jLabel5.setFont(new java.awt.Font("Impact", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("CLIENTES");
-        navPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 90, 40));
+        navPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 90, 40));
 
         jLabel6.setFont(new java.awt.Font("Impact", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("PROVEEDORES");
-        navPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 90, 40));
+        navPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 90, 40));
 
         jLabel7.setFont(new java.awt.Font("Impact", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("VENTAS");
-        navPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, 90, 40));
+        navPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 90, 40));
 
         jLabel8.setFont(new java.awt.Font("Impact", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("COMPRAS");
-        navPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 360, 90, 40));
+        navPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 90, 40));
 
         jLabel9.setFont(new java.awt.Font("Impact", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("USUARIOS");
-        navPanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 420, 90, 40));
+        navPanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, 90, 40));
 
         mainPanel.add(navPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 220, -1));
 
         displayPanel.setLayout(new java.awt.CardLayout());
-        mainPanel.add(displayPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 830, 590));
+        mainPanel.add(displayPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 950, 590));
 
         menuButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         menuButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/menu_icon_150667.png"))); // NOI18N
@@ -292,23 +292,23 @@ public class Dashboard extends javax.swing.JFrame {
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/logoversion2.jpg"))); // NOI18N
         jLabel10.setText("jLabel10");
-        mainPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 4, 280, 50));
+        mainPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 4, 280, 50));
 
-        logoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/ButtonIcons/logout2.png"))); // NOI18N
+        logoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/PichonIcons/icons8_logout_48px.png"))); // NOI18N
         logoutButton.setContentAreaFilled(false);
         logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutButtonActionPerformed(evt);
             }
         });
-        mainPanel.add(logoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 10, 70, 40));
+        mainPanel.add(logoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 10, 70, 40));
 
         nameLabel.setFont(new java.awt.Font("Impact", 0, 14)); // NOI18N
         nameLabel.setForeground(new java.awt.Color(204, 0, 102));
         nameLabel.setText("USUARIO:");
-        mainPanel.add(nameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 20, 190, 20));
+        mainPanel.add(nameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 20, 190, 20));
 
-        getContentPane().add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 670));
+        getContentPane().add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1170, 650));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -4,26 +4,33 @@
  * and open the template in the editor.
  */
 package com.inventory.UI;
-
+import java.util.Date;
 import com.inventory.DAO.UserDAO;
 import com.inventory.DTO.UserDTO;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 
-// Welcome page for the application
 public class HomePage extends javax.swing.JPanel {
 
+    String userSelect;
     /**
      * Creates new form HomePage
      */
-    public HomePage(String username) {
+    public HomePage(String username, String userType) {
+        
         initComponents();
+        userSelect = userType;
         UserDTO userDTO = new UserDTO();
         new UserDAO().getFullName(userDTO, username);
-        welcomeLabel.setText("USER AUTORIZADO:  " + userDTO.getFullName());
+        //welcomeLabel.setText("USER AUTORIZADO:  " + userDTO.getFullName());
+        //Date date = new Date();
+        //intimeLabel.setText("INTIME: "+date.toString());
+        //rolLabel.setText("ROL: " + userSelect);
+
+    
+        
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -34,43 +41,19 @@ public class HomePage extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        welcomeLabel = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(246, 246, 246));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        welcomeLabel.setFont(new java.awt.Font("Impact", 0, 30)); // NOI18N
-        welcomeLabel.setText("Bienvenido!");
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/HatchfulExport-All/test111.png"))); // NOI18N
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(139, 139, 139)
-                .addComponent(welcomeLabel)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(191, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(190, 190, 190))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(welcomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(102, Short.MAX_VALUE))
-        );
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/testbackground.jpg"))); // NOI18N
+        jButton2.setBorder(null);
+        jButton2.setContentAreaFilled(false);
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 590));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel welcomeLabel;
+    private javax.swing.JButton jButton2;
     // End of variables declaration//GEN-END:variables
 }
