@@ -46,7 +46,7 @@ public class HomePage extends javax.swing.JPanel {
         setBackground(new java.awt.Color(246, 246, 246));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/testbackground.jpg"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/testbackgroundjava.jpg"))); // NOI18N
         jButton2.setBorder(null);
         jButton2.setContentAreaFilled(false);
         add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 590));

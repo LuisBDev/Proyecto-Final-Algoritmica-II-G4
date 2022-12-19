@@ -71,7 +71,7 @@ public class PaginaLogin extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/PichonIcons/testlogin.jpg"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/Icons/PichonIcons/testloginjava.jpg"))); // NOI18N
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 440));
 
         jPanel2.setBackground(new java.awt.Color(25, 118, 211));
@@ -96,7 +96,7 @@ public class PaginaLogin extends javax.swing.JFrame {
                 jLabel11MouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, 40, 39));
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, 40, 39));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -158,7 +158,7 @@ public class PaginaLogin extends javax.swing.JFrame {
                 disableMouseClicked(evt);
             }
         });
-        jPanel2.add(disable, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 40, 40));
+        jPanel2.add(disable, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 40, 40));
 
         show.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         show.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/inventory/UI/icon/icons8_eye_20px_1.png"))); // NOI18N
@@ -168,7 +168,7 @@ public class PaginaLogin extends javax.swing.JFrame {
                 showMouseClicked(evt);
             }
         });
-        jPanel2.add(show, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 40, 40));
+        jPanel2.add(show, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 40, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
