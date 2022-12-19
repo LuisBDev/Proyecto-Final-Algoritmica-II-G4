@@ -308,7 +308,9 @@ public class PaginaCompras extends javax.swing.JPanel {
         productDTO = new ProductDTO();
         if (codeText.getText().equals("") || jDateChooser1.getDate()==null
                 || quantityText.getText().equals(""))
+        {
             JOptionPane.showMessageDialog(null, "Rellenar todos los campos.");
+        }
         else {
             productDTO.setSuppCode(new ProductDAO().getSuppCode(suppCombo.getSelectedItem().toString()));
             productDTO.setProdCode(codeText.getText());
