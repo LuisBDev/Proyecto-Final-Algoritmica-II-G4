@@ -4,6 +4,9 @@ Nuestro propósito es el de ayudar a empresarios emergentes o pequeños empresar
 
 El alcance de nuestro sistema es proveer a las empresas este sistema como herramienta útil y necesaria para determinar las necesidades en cantidad y tiempo oportuno del stock, así también los requerimientos de los productos necesarios para satisfacer la demanda de los clientes. Se estima que el cliente alcance el máximo control de inventarios dentro de su compañía.
 
+![image](https://user-images.githubusercontent.com/90058131/209247409-f169681a-1959-4e9f-9b4e-302aca6cc5cb.png)
+
+
 
 Integrantes:
 
